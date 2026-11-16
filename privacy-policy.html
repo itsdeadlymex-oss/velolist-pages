@@ -1,62 +1,80 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VeloList Privacy Policy</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 700px; margin: 0 auto; padding: 32px 20px 80px; line-height: 1.6; color: #1a1a2e; }
-  h1 { font-size: 1.8rem; margin-bottom: 4px; }
-  .updated { color: #666; font-size: 0.9rem; margin-bottom: 32px; }
-  h2 { font-size: 1.2rem; margin-top: 2em; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
-  ul { padding-left: 1.2em; }
-  li { margin-bottom: 0.5em; }
-  a { color: #0a7d5c; }
+  body { font: 17px/1.55 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; color: #1f2937; background: #fff; margin: 0; }
+  main { max-width: 720px; margin: 0 auto; padding: 28px 20px 64px; }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  h2 { font-size: 21px; margin: 34px 0 6px; }
+  p, li { margin: 8px 0; }
+  .meta { color: #6b7280; margin-bottom: 18px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 15.5px; }
+  th, td { border: 1px solid #e5e7eb; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f3f4f6; }
+  a { color: #047857; }
 </style>
 </head>
 <body>
-
+<main>
 <h1>VeloList Privacy Policy</h1>
-<p class="updated">Last updated: August 2, 2026</p>
+<p class="meta">Last updated: October 25, 2026</p>
 
-<p>VeloList ("the app") is a resale listing assistant. This page explains what information the app accesses, how it's used, and what happens to it. VeloList does not run its own servers and does not sell or share your data with advertisers.</p>
+<p>VeloList helps people resell items: it drafts eBay listings from photos, and checks what items sell for. This policy explains what information the app handles, who it goes to, and the choices you have. In short: we keep as little as we can, we do not sell your data, and we do not track you across other companies' apps or websites.</p>
 
-<h2>Camera &amp; Photos</h2>
-<p>When you scan an item, VeloList uses your device's camera (or a photo you choose from your library) to capture an image. That photo is sent directly to Google's Gemini API to generate a title, description, price estimate, category, and shipping recommendation for the item. VeloList does not store your photos on any server it controls; the image is processed by Google to return the analysis and is not retained by VeloList afterward beyond your device's local storage of the item you're currently editing.</p>
+<h2>What the app handles, and why</h2>
+<table>
+<tr><th>Information</th><th>What we use it for</th><th>Where it goes</th></tr>
+<tr><td><b>Email address and account ID</b> (only if you create an account; you can use the app as a guest)</td><td>Signing you in</td><td>Google Firebase Authentication</td></tr>
+<tr><td><b>Photos you take or choose</b></td><td>Drafting a listing and identifying an item</td><td>Sent to Google's Gemini AI service (through Firebase) to be analyzed. VeloList does not keep a separate copy for this.</td></tr>
+<tr><td><b>Listing photos and details</b> (title, description, price, shipping details) when you tap List</td><td>Creating your listing on eBay</td><td>Sent to VeloList's servers (Google Cloud), which pass them to eBay. <b>The photos are saved to VeloList's cloud storage at web links that anyone with the exact link can open</b>, because eBay needs to load them. They stay there until deleted (see "Your choices").</td></tr>
+<tr><td><b>Search words and barcode numbers</b> you enter on Radar</td><td>Looking up prices and sales on eBay</td><td>Sent to VeloList's servers, which ask eBay and return the answer</td></tr>
+<tr><td><b>Your eBay sign-in</b></td><td>Listing to your own eBay seller account</td><td>You sign in on eBay's own page. VeloList never sees your eBay password. The access tokens eBay returns are kept only in your iPhone's secure Keychain. They are not stored on our servers.</td></tr>
+<tr><td><b>Push notification token</b> (only if you turn on price-drop alerts)</td><td>Sending price-drop alerts</td><td>Google Firebase Cloud Messaging</td></tr>
+<tr><td><b>Items you save, drafts, listing history and settings</b></td><td>The app's features</td><td>Stored on your device only</td></tr>
+</table>
 
-<h2>Microphone &amp; Speech Recognition</h2>
-<p>The "Speak to Fill In" feature uses your device's microphone to let you dictate an item description. Audio is processed using Apple's Speech Recognition framework, which performs recognition on-device when supported by your device and language, and otherwise sends audio to Apple's servers for transcription. VeloList itself does not store or transmit your voice recordings anywhere.</p>
+<h2>Advertising</h2>
+<p>The free version shows banner ads from Google AdMob. We request <b>non-personalized</b> ads and do not use the iOS tracking permission. Google may still collect limited device and usage information to deliver and measure ads; see <a href="https://policies.google.com/technologies/ads">Google's advertising policy</a>. VeloList Premium removes ads.</p>
 
-<h2>Barcode Scanning</h2>
-<p>Barcodes are detected on-device using Apple's Vision framework. The detected barcode value is used only as additional context sent alongside your photo to Gemini, to help identify the product more accurately.</p>
+<h2>Subscriptions</h2>
+<p>VeloList Premium is bought through Apple. Apple handles payment; VeloList never receives your card details. The app only checks whether your subscription is active.</p>
 
-<h2>eBay Account Connection</h2>
-<p>If you choose to connect an eBay account from Settings, VeloList uses eBay's own sign-in flow (OAuth) to authenticate you directly with eBay — VeloList never sees or stores your eBay password. The resulting access token is stored securely on your device and used to communicate with eBay's API on your behalf. This app currently connects to eBay's Sandbox (test) environment.</p>
-
-<h2>Facebook Marketplace</h2>
-<p>Facebook Marketplace does not offer a public listing API for individual sellers. VeloList's Facebook Marketplace toggle is a local preference only — no account connection or data is sent to Facebook/Meta.</p>
-
-<h2>App Diagnostics (Firebase)</h2>
-<p>VeloList uses Google's Firebase SDK solely to support its AI features. Firebase may collect basic, non-personal technical diagnostics (such as app version and general device information) as part of standard SDK operation. VeloList does not use Firebase Analytics, Firebase Authentication, or Firebase Crashlytics to track you across other apps or websites.</p>
-
-<h2>Data Stored on Your Device</h2>
-<p>Your listings, drafts, listing history, and app settings are stored locally on your device. This information is not uploaded to or stored on any server operated by VeloList.</p>
-
-<h2>Data We Do Not Collect</h2>
+<h2>Other services the app uses</h2>
 <ul>
-  <li>We do not sell your data.</li>
-  <li>We do not use your data for third-party advertising.</li>
-  <li>We do not track you across other companies' apps or websites.</li>
+<li><b>eBay</b>: listing to your account, and the price and sales information shown on Radar. When you open eBay's sold-price pages, eBay's own privacy policy applies.</li>
+<li><b>Apple</b>: Speech recognition (the optional "Speak to Fill In" button) and barcode detection run through Apple's frameworks, and Apple may process dictated audio under its own policy.</li>
+<li><b>Google</b>: Firebase, Google Cloud, Gemini and AdMob, as described above.</li>
 </ul>
 
-<h2>Children's Privacy</h2>
-<p>VeloList is not directed at children under 13, and we do not knowingly collect information from children under 13.</p>
+<h2>Server records</h2>
+<p>Like most online services, our cloud servers keep technical logs of requests (such as the time, the kind of request and the IP address it came from). We use them to run the service, fix problems and limit abuse. Google Cloud keeps these logs for a limited period (by default, about 30 days).</p>
 
-<h2>Changes to This Policy</h2>
-<p>If this policy changes, the "Last updated" date at the top of this page will be revised.</p>
+<h2>Your choices</h2>
+<ul>
+<li><b>Use the app as a guest</b> without giving an email address.</li>
+<li><b>Delete your account</b> in Settings, under Your Account, then Delete Account. This deletes your sign-in account (email and account ID), clears your saved eBay sign-in from your iPhone, turns off price alerts, and erases the app's saved data on your device.</li>
+<li><b>Disconnect eBay</b> at any time from Settings. You can also revoke VeloList's access in your eBay account settings.</li>
+<li><b>Photos saved at public links:</b> to have the photos from your listings removed, email us at the address below with the item title or the date you listed it, and we will delete them. Removing a photo that a live eBay listing still shows can make that picture disappear from the listing.</li>
+<li><b>Notifications and camera:</b> you can turn each off in iOS Settings.</li>
+<li>You can ask us for a copy of, or the deletion of, any other information we hold about you by emailing us.</li>
+</ul>
+
+<h2>Children</h2>
+<p>VeloList is not directed at children under 13, and we do not knowingly collect information from them.</p>
+
+<h2>Security</h2>
+<p>Connections between the app and our servers are encrypted. Your eBay access tokens stay in the iPhone Keychain. No system is perfectly secure, so we cannot guarantee absolute security.</p>
+
+<h2>Changes</h2>
+<p>If we change what VeloList does with information, we will update this page and its date, and for significant changes we will tell you in the app.</p>
 
 <h2>Contact</h2>
-<p>Questions about this policy or your data can be sent to <a href="mailto:jameswalkerrobertson@gmail.com">jameswalkerrobertson@gmail.com</a>.</p>
+<p>Questions or requests: <a href="mailto:jameswalkerrobertson@gmail.com">jameswalkerrobertson@gmail.com</a></p>
 
+<p class="meta">VeloList is not affiliated with, endorsed by or sponsored by eBay Inc. eBay is a trademark of eBay Inc.</p>
+</main>
 </body>
 </html>
